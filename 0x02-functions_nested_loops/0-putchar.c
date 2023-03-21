@@ -1,9 +1,10 @@
+#include "main.h"
 /**
  * main - Write a program that prints _putchar, followed by a new line.
  *
  * Return always 0 if success
  */
-#include "main.h"
+ 
 int main(void)
 {
 _putchar('_');
