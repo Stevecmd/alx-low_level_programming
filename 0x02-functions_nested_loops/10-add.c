@@ -5,6 +5,7 @@
  * @a: int to be added to b
  * @b: int to be added to a
  * Return: sum of a and b
+ * written by Steve
  */
 int add(int a, int b)
 {

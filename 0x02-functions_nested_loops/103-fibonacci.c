@@ -7,14 +7,14 @@
  */
 int main(void)
 {
-	int i;
+	int s;
 	unsigned long int j, k, next, sum;
 
 	j = 1;
 	k = 2;
 	sum = 0;
 
-	for (i = 1; i <= 33; ++i)
+	for (s = 1; s <= 33; s++)
 	{
 		if (j < 4000000 && (j % 2) == 0)
 		{

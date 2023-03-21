@@ -2,8 +2,8 @@
 
 /**
  * main - check the code.
- *
  * Return: Always 0.
+ * written by Steve
  */
 int main(void)
 {

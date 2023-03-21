@@ -2,19 +2,20 @@
 
 /**
  * print_times_table - Prints the n times table
- * @n: number times table (0 < n <= 15)
+ * @s: number times table (0 < n <= 15)
  * Return: no return
+ * written by Steve
  */
-void print_times_table(int n)
+void print_times_table(int s)
 {
 	int a, b, op;
 
-	if (n >= 0 && n <= 15)
+	if (s >= 0 && s <= 15)
 	{
 		for (a = 0; a <= n; a++)
 		{
 			_putchar(48);
-			for (b = 1; b <= n; b++)
+			for (b = 1; b <= s; b++)
 			{
 				op = a * b;
 				_putchar(44);
