@@ -1,11 +1,8 @@
 #include "main.h"
 
 /**
- * print_alphabet - print all alphabet in lowercase
+ * print_alphabet - print all letters in lowercase
  * written by Steve
- * Write a function that prints the alphabet, in lowercase, followed by a new line.
- * Prototype: void print_alphabet(void);
- * You can only use _putchar twice in your code
  */
 
 void print_alphabet(void)
