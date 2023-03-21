@@ -1,9 +1,8 @@
 #include "main.h"
 /**
- * main - Write a program that prints _putchar, followed by a new line.
- *
- * Return always 0 if success
+ * main - Program that prints _putchar, followed by a new line.
  * void is an integer value for main
+ * Return 0
  */
 int main(void)
 {
