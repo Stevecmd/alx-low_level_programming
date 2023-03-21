@@ -1,10 +1,8 @@
 #include "main.h"
 /**
- * main - prints _putchar
- * Description - writes a program that 
- * prints _putchar, followed by a new line
+ * main - print _putchar
  * written by Steve
- * Return ends the script
+ * Return: 0
  */
 int main(void)
 {
