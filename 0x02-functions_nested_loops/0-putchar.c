@@ -1,12 +1,20 @@
 #include "main.h"
 /**
- * main - Program that prints _putchar, followed by a new line.
- * void is an integer value for main
- * Return 0
+ * int main(void) - short description
+ * Description - writes a program that 
+ * prints _putchar, followed by a new line
+ * Return ends the script
+ * void is a return value of main
  */
 int main(void)
 {
 _putchar('_');
+	/**
+	 * @p: This is longer description of C
+	 *
+	 * Description: You can use paragraphs to describe arguments
+	 * using this method.
+	 */
 _putchar('p');
 _putchar('u');
 _putchar('t');
