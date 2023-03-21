@@ -3,6 +3,7 @@
  * main - Write a program that prints _putchar, followed by a new line.
  *
  * Return always 0 if success
+ * void is an integer value for main
  */
 int main(void)
 {
