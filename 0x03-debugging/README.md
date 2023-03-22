@@ -357,7 +357,7 @@ Output looks good for 04/01/1997! Let’s make a new main file 3-main_b.c to try
 
 -----
 
-``` 
+``` `
 carrie@ubuntu:/debugging$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 3-convert_day.c 3-print_remaining_days.c 3-main_b.c -o 3-main_b 
 carrie@ubuntu:/debugging$ ./3-main_b
 Date: 02/29/2000
