@@ -350,7 +350,7 @@ Date: 04/01/1997
 Day of the year: 91
 Remaining days: 274
 carrie@ubuntu:/debugging$
-``` ```
+```
 -----
 
 Output looks good for 04/01/1997! Let’s make a new main file 3-main_b.c to try a case that is a leap year: 02/29/2000.
