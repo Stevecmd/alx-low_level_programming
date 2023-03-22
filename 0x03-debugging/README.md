@@ -1,5 +1,6 @@
-0x03-debugging
-0. Multiple mains
+# 0x03-debugging
+
+### 0. Multiple mains
 In most projects, we often give you only one main file to test with. For example, this main file is a test for a postitive_or_negative() function similar to the one you worked with in an earlier C project:
 ```
 carrie@ubuntu:/debugging$ cat main.c
@@ -62,7 +63,7 @@ carrie@ubuntu:/debugging$
 
 -----
 
-1. Like, comment, subscribe
+### 1. Like, comment, subscribe
 
 Copy this main file. Comment out (don’t delete it!) the part of the code that is causing the output to go into an infinite loop.
 
@@ -114,11 +115,10 @@ carrie@ubuntu:/debugging$ wc -l 1-main.c
 24 1-main.c
 carrie@ubuntu:/debugging$
 ```
------
 
-File: 1-main.c
+> File: 1-main.c
 
-2. 0 > 972? 
+### 2. 0 > 972? 
 This program prints the largest of three integers.
 ```
 carrie@ubuntu:/debugging$ cat 2-main.c
@@ -199,9 +199,9 @@ Fix the code in 2-largest_number.c so that it correctly prints out the largest o
 
     Line count will not be checked for this task.
 
-File: 2-largest_number.c, main.h
+> File: 2-largest_number.c, main.h
 
-3. Leap year 
+### 3. Leap year 
 This program converts a date to the day of year and determines how many days are left in the year, taking leap year into consideration.
 
 
@@ -343,7 +343,7 @@ void print_remaining_days(int month, int day, int year)
 carrie@ubuntu:/debugging$ 
 
 
-```
+``
 carrie@ubuntu:/debugging$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 3-convert_day.c 3-print_remaining_days.c 3-main_a.c -o 3-main_a 
 carrie@ubuntu:/debugging$ ./3-main_a
 Date: 04/01/1997
@@ -357,20 +357,20 @@ Output looks good for 04/01/1997! Let’s make a new main file 3-main_b.c to try
 
 -----
 
-``` `
+``` 
 carrie@ubuntu:/debugging$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 3-convert_day.c 3-print_remaining_days.c 3-main_b.c -o 3-main_b 
 carrie@ubuntu:/debugging$ ./3-main_b
 Date: 02/29/2000
 Invalid date: 02/29/2000
 carrie@ubuntu:/debugging$
-``` `
+``` 
 -----
 ? That doesn’t seem right.
-
+```
 Fix the print_remaining_days() function so that the output works correctly for all dates and all leap years.
 
     Line count will not be checked for this task.
     You can assume that all test cases have valid months (i.e. the value of month will never be less than 1 or greater than 12) and valid days (i.e. the value of day will never be less than 1 or greater than 31).
     You can assume that all test cases have valid month/day combinations (i.e. there will never be a June 31st or November 31st, etc.), but not all month/day/year combinations are valid (i.e. February 29, 1991 or February 29, 2427).
-
-File: 3-print_remaining_days.c, main.h
+```
+> File: 3-print_remaining_days.c, main.h
