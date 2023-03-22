@@ -182,7 +182,7 @@ int largest_number(int a, int b, int c)
 }
 
 carrie@ubuntu:/debugging$
-``` ```
+```
 
 ```
 carrie@ubuntu:/debugging$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 2-largest_number.c 2-main.c -o 2-main
