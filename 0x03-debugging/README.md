@@ -350,20 +350,20 @@ Date: 04/01/1997
 Day of the year: 91
 Remaining days: 274
 carrie@ubuntu:/debugging$
-```
+``` ```
 -----
 
 Output looks good for 04/01/1997! Let’s make a new main file 3-main_b.c to try a case that is a leap year: 02/29/2000.
 
 -----
 
-```
+``` `
 carrie@ubuntu:/debugging$ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 3-convert_day.c 3-print_remaining_days.c 3-main_b.c -o 3-main_b 
 carrie@ubuntu:/debugging$ ./3-main_b
 Date: 02/29/2000
 Invalid date: 02/29/2000
 carrie@ubuntu:/debugging$
-```
+``` `
 -----
 ? That doesn’t seem right.
 
