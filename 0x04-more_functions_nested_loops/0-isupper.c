@@ -6,9 +6,9 @@
  * Return: 1 if true and 0 for anything else
  */
 
-int _isupper(int n)
+int _isupper(int c)
 {
-	if(n >= 'A' && n<= 'Z')
+	if(c >= 'A' && c<= 'Z')
 	{
 	return(1);
 	}
