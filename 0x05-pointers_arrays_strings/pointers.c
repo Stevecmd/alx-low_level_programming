@@ -6,7 +6,7 @@ int main(void)
     int *p;
     
     i = 100;
-    p = %i;
+    p = &i;
 
     printf("\nThe memory address of 'n' is: %p\n", &i);
     printf("\nThe value of the pointer 'p' is: %p\n", p);
