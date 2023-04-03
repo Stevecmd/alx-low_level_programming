@@ -2,7 +2,7 @@
 #include "main.h"
 
 /**
- * _strstr - main function
+ * _strstr - main function that Returns a pointer to the beginning of the located substring
  * @haystack: string
  * @needle: first occurence of substring needle
  * Return: Always 0 (Success)
