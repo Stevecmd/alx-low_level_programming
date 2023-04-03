@@ -19,12 +19,16 @@
 
         for (n = 0; accept[n] != '\0'; n++)
         {
-            if (accept[n] == s[i])
-            {
-                value++;
-                check = 1;
-            }
+            	if (accept[n] == s[i])
+            	{
+                	value++;
+	                check = 1;
+            	}
         }
-        if (check == 0)
+    	if (check == 0)
+    	{
+	    return value;
+    	}
     }
- }
+    return value;
+}
