@@ -1,21 +1,22 @@
 #include "lists.h"
+#include <stdio.h>
 
 /**
  * listint_len - function that adds a new node at the 
  * beginning of a listint_t list.
- * @h: linked list of type listint_t that will be processed
+ * @h: pointer to the head of the listint_t list.
  *
- * Return: number of nodes
+ * Return: number of elements.
  */
 size_t listint_len(const listint_t *h)
 {
-	size_t num = 0;
+	size_t nums = 0;
 
 	while (h)
 	{
-		num++;
+		nums++;
 		h = h->next;
 	}
 
-	return (num);
+	return (nums);
 }
