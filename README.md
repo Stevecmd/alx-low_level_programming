@@ -69,3 +69,27 @@ This is where you declare variables that are local to the main() function.
 - **Executable Section:** <br />
 This is where you put the statements to be executed.
 
+# Program template:
+```c
+int add(int a, int b)
+{
+    int sum;
+    sum = a + b;
+    return (sum);
+}
+
+int main(void)
+{
+    int i;
+    int j;
+    int res;
+
+    i = 2;
+    j = 4;
+    res = add(i, j);
+    print("%d\n", res);
+    return 0;
+}
+```
+
+
