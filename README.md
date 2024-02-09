@@ -98,5 +98,17 @@ int main(void)
     return 0;
 }
 ```
-
+## Format specifiers:
+They are used in functions like printf() and scanf() to determine the type of data that is being dealt with. Here are some of the popular ones: <br />
+- `%d` or `%i`: Used for integers.
+- `%c`: Used for a single character.
+- `%s`: Used for a string of text.
+- `%f`: Used for floating point numbers.
+- `%lf`: Used for double.
+- `%u`: Used for unsigned integers.
+- `%x` or `%X`: Used for unsigned integers in hexadecimal.
+- `%o`: Used for unsigned integers in octal.
+- `%p`: Used for pointers.
+For example, if you want to print an integer `int num = 10;`, you would use `printf("%d", num);`. Similarly, for a character `char ch = 'A';`, you would use `printf("%c", ch);`. <br />
+Format specifiers help functions understand the type of data they are expected to handle.
 
