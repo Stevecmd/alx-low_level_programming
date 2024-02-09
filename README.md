@@ -71,6 +71,13 @@ This is where you put the statements to be executed.
 
 # Program template:
 ```c
+/**
+ * Addition - function to calculate addition of integers
+ * @int a: number
+ * @int b: number
+ *
+ * Return: result of sum.
+ */
 int add(int a, int b)
 {
     int sum;
