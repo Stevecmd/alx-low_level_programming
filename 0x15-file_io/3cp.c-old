@@ -5,51 +5,21 @@
 
 #define BUFFER_SIZE 1024
 
-/**
- * close_file - Closes a file descriptor.
- * @fd: The file descriptor to close.
- *
- * Return: None.
- */
-void close_file(int fd)
-{
-	if (close(fd) == -1)
-	{
-		dprintf(STDERR_FILENO, "Error: Can't close fd %d\n", fd);
-		exit(100);
-	}
-}
-
-/**
- * print_error - Prints an error message.
- * @message: The error message format string.
- * @filename: The filename associated with the error.
- * @code: The error code.
- *
- * Return: None.
- */
 void print_error(const char *message, const char *filename, int code)
 {
 	dprintf(STDERR_FILENO, message, filename);
 	exit(code);
 }
 
-/**
- * main - Copies the contents of a file to another file.
- * @argc: The number of arguments supplied to the program.
- * @argv: An array of pointers to the arguments.
- *
- * Return: 0 on success.
- */
 int main(int argc, char *argv[])
 {
-	int from, to, r, w;
+	int from, to;
+	ssize_t r, w;
 	char buffer[BUFFER_SIZE];
 
 	if (argc != 3)
 	{
-		dprintf(STDERR_FILENO, "Usage: cp file_from file_to\n");
-		exit(97);
+		print_error("Usage: cp file_from file_to\n", "", 97);
 	}
 
 	from = open(argv[1], O_RDONLY);
@@ -78,9 +48,15 @@ int main(int argc, char *argv[])
 		print_error("Error: Can't read from file %s\n", argv[1], 98);
 	}
 
-	close_file(from);
-	close_file(to);
+	if (close(from) == -1)
+	{
+		print_error("Error: Can't close fd %d\n", from, 100);
+	}
+
+	if (close(to) == -1)
+	{
+		print_error("Error: Can't close fd %d\n", to, 100);
+	}
 
 	return (0);
 }
-
