@@ -5,7 +5,8 @@
 /**
  * append_text_to_file - append text to file
  * @filename: name of the file
- * @text_content: text_content is the NULL terminated string to add at the end of the file
+ * @text_content: NULL terminated string to add at the end
+ * of the file.
  * Return: Success ? 1 : -1
  */
 
