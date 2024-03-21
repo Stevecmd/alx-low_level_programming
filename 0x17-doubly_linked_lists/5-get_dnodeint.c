@@ -1,7 +1,7 @@
 #include "lists.h"
 
 /**
- * get_dnodeint_at_index - Returns the node at a given index in a dlistint_t list.
+ * get_dnodeint_at_index - Returns the node at a given index in a list.
  * @head: A pointer to the head of the dlistint_t list.
  * @index: The index of the node to retrieve.
  *
