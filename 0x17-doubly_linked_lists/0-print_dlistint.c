@@ -13,7 +13,7 @@ size_t print_dlistint(const dlistint_t *h)
 	if (h == NULL)
 	{
 		printf("Empty list\n");
-		return 0;
+		return (0);
 	}
 
 	while (h != NULL)
@@ -25,5 +25,5 @@ size_t print_dlistint(const dlistint_t *h)
 		node_count++;
 	}
 
-	return node_count;
+	return (node_count);
 }
