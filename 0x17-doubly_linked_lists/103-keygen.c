@@ -95,22 +95,25 @@ int main(int argc, char **argv)
 	int tmp = 0;
 	int i;
 
-	if (argc != 2) {
+	if (argc != 2)
+	{
 		printf("Usage: %s username\n", argv[0]);
-		return 1;
+		return (1);
 	}
 
 	len = strlen(argv[1]);
 	/* ----------- f1 ----------- */
 	keygen[0] = ((char *)alph)[(len ^ 59) & 63];
 	/* ----------- f2 ----------- */
-	for (i = 0; argv[1][i]; i++) {
+	for (i = 0; argv[1][i]; i++)
+	{
 		tmp += argv[1][i];
 	}
 	keygen[1] = ((char *)alph)[(tmp ^ 79) & 63];
 	/* ----------- f3 ----------- */
 	tmp = 1;
-	for (i = 0; argv[1][i]; i++) {
+	for (i = 0; argv[1][i]; i++)
+	{
 		tmp *= argv[1][i];
 	}
 	keygen[2] = ((char *)alph)[(tmp ^ 85) & 63];
@@ -122,7 +125,8 @@ int main(int argc, char **argv)
 	keygen[5] = ((char *)alph)[f6(argv[1])];
 	keygen[6] = '\0';
 
-	for (ch = 0; keygen[ch]; ch++) {
+	for (ch = 0; keygen[ch]; ch++)
+	{
 		printf("%c", keygen[ch]);
 	}
 	printf("\n");
