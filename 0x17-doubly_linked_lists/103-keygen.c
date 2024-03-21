@@ -91,16 +91,28 @@ int main(int argc, char **argv)
 		0x3877445248432d41, 0x42394530534e6c37, 0x4d6e706762695432,
 		0x74767a5835737956, 0x2b554c59634a474f, 0x71786636576a6d34,
 		0x723161513346655a, 0x6b756f494b646850 };
-	(void) argc;
+	int ch;
 
-	for (len = 0; argv[1][len]; len++)
-		;
+	if (argc != 2) {
+		printf("Usage: %s username\n", argv[0]);
+		return 1;
+	}
+
+	len = strlen(argv[1]);
 	/* ----------- f1 ----------- */
 	keygen[0] = ((char *)alph)[(len ^ 59) & 63];
 	/* ----------- f2 ----------- */
-	keygen[1] = ((char *)alph)[((int)argv[1][0] ^ 79) & 63];
+	int tmp = 0;
+	for (int i = 0; argv[1][i]; i++) {
+		tmp += argv[1][i];
+	}
+	keygen[1] = ((char *)alph)[(tmp ^ 79) & 63];
 	/* ----------- f3 ----------- */
-	keygen[2] = ((char *)alph)[(len * (int)argv[1][0] ^ 85) & 63];
+	tmp = 1;
+	for (int i = 0; argv[1][i]; i++) {
+		tmp *= argv[1][i];
+	}
+	keygen[2] = ((char *)alph)[(tmp ^ 85) & 63];
 	/* ----------- f4 ----------- */
 	keygen[3] = ((char *)alph)[f4(argv[1], len)];
 	/* ----------- f5 ----------- */
@@ -109,7 +121,6 @@ int main(int argc, char **argv)
 	keygen[5] = ((char *)alph)[f6(argv[1])];
 	keygen[6] = '\0';
 
-	int ch;
 	for (ch = 0; keygen[ch]; ch++) {
 		printf("%c", keygen[ch]);
 	}
