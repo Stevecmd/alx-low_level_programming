@@ -28,16 +28,18 @@ Order of commands `2. Let's call C functions from Python `:
 `python3 100-tests.py`
 
 Final task commands:
+```sh
 git clone https://github.com/alx-tools/0x18.c
 ./gm 9 8 10 24 75 9 11 26 52 10 68 -1
 ./gm 9 8 10 24 75 9
 cp gm ../
 cd ..
+```
 
-Create `hackroot.c` then `gcc -c hackroot.c -fpic`.
-gcc hackroot.o -shared -o libhack.so
-export LD_PRELOAD=/$PWD/libhack.so 
-ldd ./gm
+Create `hackroot.c` then `gcc -c hackroot.c -fpic`. <br />
+`gcc hackroot.o -shared -o libhack.so`
+`export LD_PRELOAD=/$PWD/libhack.so `
+`ldd ./gm` <br />
 output:
 ```sh
 
@@ -56,4 +58,5 @@ stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x18-dynamic_libraries$ ./g
 Congratulations, you win the Jackpot!
 
 ```
-Create `101-make_me_win.sh`.
+Create `101-make_me_win.sh`. <br />
+Make the file executable: `chmod u+x 101-make_me_win.sh `
