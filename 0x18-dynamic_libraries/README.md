@@ -14,3 +14,10 @@ Advantages:
 1. Smaller file sizes, <br />
 2. No need to recompile entire program.
 
+Workflow:
+Create the `*.c` files. <br />
+Declare the prototypes in `main.h`.
+Make the object files by running: `gcc -fPIC -c *.c` <br />
+`f` is a flag, `PIC` is Position independent code, used to create shared libraries. <be />
+Create a Dynamic (shared) library from the object code created: `gcc -shared -o libdynamic.so *.o`.
+Move all `.c` and `.o` files to a central location: `my_functions`.
