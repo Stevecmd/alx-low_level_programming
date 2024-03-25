@@ -111,5 +111,4 @@ They are used in functions like printf() and scanf() to determine the type of da
 - `%p`: Used for pointers.
 For example, if you want to print an integer `int num = 10;`, you would use `printf("%d", num);`. Similarly, for a character `char ch = 'A';`, you would use `printf("%c", ch);`. <br />
 Format specifiers help functions understand the type of data they are expected to handle.
-Test
 
