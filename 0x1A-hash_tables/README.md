@@ -111,3 +111,93 @@ stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ valgrind 
 ```
 
 File: `0-hash_table_create.c`
+
+1. djb2 
+Write a hash function implementing the djb2 algorithm.
+
+- Prototype: `unsigned long int hash_djb2(const unsigned char *str);`
+
+```sh
+
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ cat 1-djb2.c
+/**
+ * hash_djb2 - Calculates the hash value of a given string
+ * using the djb2 algorithm.
+ *
+ * This function takes a pointer to an unsigned char array
+ * representing the string
+ * and computes its hash value using the djb2 algorithm.
+ * The djb2 algorithm is a simple but effective hashing
+ * algorithm designed by Daniel J. Bernstein.
+ *
+ * @param str A pointer to an unsigned char array representing the string.
+ *            It should point to the first character of the string.
+ * @return The hash value of the input string. (Unsigned long integer.)
+ *         The hash value is calculated using the djb2 algorithm.
+ * @str: Pointer to the string.
+ *
+ * Return: Always 0 (Success)
+ */
+
+unsigned long int hash_djb2(const unsigned char *str)
+{
+        unsigned long int hash;
+        int c;
+
+        hash = 5381;
+        while ((c = *str++))
+        {
+                hash = ((hash << 5) + hash) + c; /* hash * 33 + c */
+        }
+        return (hash);
+}
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ cat 1-main.c 
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "hash_tables.h"
+
+/**
+ * main - check the code
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
+int main(void)
+{
+        char *s;
+
+        s = "cisfun";
+        printf("%lu\n", hash_djb2((unsigned char *)s));
+        s = "Don't forget to tweet today";
+        printf("%lu\n", hash_djb2((unsigned char *)s));
+        s = "98";
+        printf("%lu\n", hash_djb2((unsigned char *)s));
+        return (EXIT_SUCCESS);
+}
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 1-main.c 1-djb2.c -o b
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ ./b
+6953392314605
+3749890792216096085
+5861846
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ valgrind ./b
+==7746== Memcheck, a memory error detector
+==7746== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==7746== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==7746== Command: ./b
+==7746== 
+6953392314605
+3749890792216096085
+5861846
+==7746== 
+==7746== HEAP SUMMARY:
+==7746==     in use at exit: 0 bytes in 0 blocks
+==7746==   total heap usage: 1 allocs, 1 frees, 1,024 bytes allocated
+==7746== 
+==7746== All heap blocks were freed -- no leaks are possible
+==7746== 
+==7746== For lists of detected and suppressed errors, rerun with: -s
+==7746== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+
+```
+
+File: `1-djb2.c`
