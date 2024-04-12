@@ -116,6 +116,7 @@ File: `0-hash_table_create.c`
 Write a hash function implementing the djb2 algorithm.
 
 - Prototype: `unsigned long int hash_djb2(const unsigned char *str);`
+- You are allowed to copy and paste the function from [Here](https://gist.github.com/papamuziko/7bb52dfbb859fdffc4bd0f95b76f71e8)
 
 ```sh
 
