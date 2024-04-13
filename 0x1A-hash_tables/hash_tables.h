@@ -3,6 +3,7 @@
 
 #include <stddef.h>
 #include <stdlib.h>
+#include <string.h>
 
 
 /**
@@ -44,5 +45,8 @@ unsigned long int hash_djb2(const unsigned char *str);
 
 /* 2-key_index.c */
 unsigned long int key_index(const unsigned char *key, unsigned long int size);
+
+/* 3-hash_table_set.c */
+int hash_table_set(hash_table_t *ht, const char *key, const char *value);
 
 #endif /* HASH_TABLES_H */
