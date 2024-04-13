@@ -29,9 +29,7 @@ hash_table_t *hash_table_create(unsigned long int size)
 	/* Allocating memory for the array of hash-nodes */
 	hash_table->array = malloc(sizeof(hash_node_t *) * size);
 	if (hash_table->array == NULL)
-	{
 		return (NULL);
-	}
 
 	/* Initializing each element of the array to NULL */
 	for (i = 0; i < size; i++)
