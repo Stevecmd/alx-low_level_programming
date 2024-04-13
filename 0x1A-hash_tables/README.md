@@ -297,3 +297,102 @@ int main(void)
 stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 3-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c -o d
 
 ```
+File: `3-hash_table_set.c`
+
+4. >>>ht['betty']
+
+Write a function that retrieves a value associated with a key.
+
+ - Prototype: `char *hash_table_get(const hash_table_t *ht, const char *key);`
+    - where `ht` is the hash table you want to look into
+     - and `key` is the key you are looking for
+ - Returns the value associated with the element, or `NULL` if `key` couldn’t be found
+
+```sh
+
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ cat 4-main.c 
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "hash_tables.h"
+
+/**
+ * main - check the code
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
+int main(void)
+{
+        hash_table_t *ht;
+        char *value;
+
+        ht = hash_table_create(1024);
+        hash_table_set(ht, "c", "fun");
+        hash_table_set(ht, "python", "awesome");
+        hash_table_set(ht, "Bob", "and Kris love asm");
+        hash_table_set(ht, "N", "queens");
+        hash_table_set(ht, "Asterix", "Obelix");
+        hash_table_set(ht, "Betty", "Cool");
+        hash_table_set(ht, "98", "Battery Street");
+        hash_table_set(ht, "c", "isfun");
+
+        value = hash_table_get(ht, "python");
+        printf("%s:%s\n", "python", value);
+        value = hash_table_get(ht, "Bob");
+        printf("%s:%s\n", "Bob", value);
+        value = hash_table_get(ht, "N");
+        printf("%s:%s\n", "N", value);
+        value = hash_table_get(ht, "Asterix");
+        printf("%s:%s\n", "Asterix", value);
+        value = hash_table_get(ht, "Betty");
+        printf("%s:%s\n", "Betty", value);
+        value = hash_table_get(ht, "98");
+        printf("%s:%s\n", "98", value);
+        value = hash_table_get(ht, "c");
+        printf("%s:%s\n", "c", value);
+        value = hash_table_get(ht, "javascript");
+        printf("%s:%s\n", "javascript", value);
+        return (EXIT_SUCCESS);
+}
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 4-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c -o e
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ valgrind ./e
+==19814== Memcheck, a memory error detector
+==19814== Copyright (C) 2002-2017, and GNU GPL'd, by Julian Seward et al.
+==19814== Using Valgrind-3.18.1 and LibVEX; rerun with -h for copyright info
+==19814== Command: ./e
+==19814== 
+python:awesome
+Bob:and Kris love asm
+N:queens
+Asterix:Obelix
+Betty:Cool
+98:Battery Street
+c:isfun
+javascript:(null)
+==19814== 
+==19814== HEAP SUMMARY:
+==19814==     in use at exit: 8,504 bytes in 26 blocks
+==19814==   total heap usage: 27 allocs, 1 frees, 9,528 bytes allocated
+==19814== 
+==19814== LEAK SUMMARY:
+==19814==    definitely lost: 16 bytes in 1 blocks
+==19814==    indirectly lost: 8,488 bytes in 25 blocks
+==19814==      possibly lost: 0 bytes in 0 blocks
+==19814==    still reachable: 0 bytes in 0 blocks
+==19814==         suppressed: 0 bytes in 0 blocks
+==19814== Rerun with --leak-check=full to see details of leaked memory
+==19814== 
+==19814== For lists of detected and suppressed errors, rerun with: -s
+==19814== ERROR SUMMARY: 0 errors from 0 contexts (suppressed: 0 from 0)
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ ./e
+python:awesome
+Bob:and Kris love asm
+N:queens
+Asterix:Obelix
+Betty:Cool
+98:Battery Street
+c:isfun
+javascript:(null)
+
+```
+File: `4-hash_table_get.c`
