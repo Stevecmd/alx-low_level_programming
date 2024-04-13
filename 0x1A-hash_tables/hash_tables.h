@@ -56,4 +56,7 @@ char *hash_table_get(const hash_table_t *ht, const char *key);
 /* 5-hash_table_print */
 void hash_table_print(const hash_table_t *ht);
 
+/* 6-hash_table_delete */
+void hash_table_delete(hash_table_t *ht);
+
 #endif /* HASH_TABLES_H */
