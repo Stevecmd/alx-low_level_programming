@@ -5,7 +5,7 @@
  * @size: The size of the array.
  *
  *
- * Description: This function creates a hash table with an array of size elements.
+ * Description: This function creates a hash table with an array of elements.
  *              If the memory allocation fails for the hash table or the array,
  *              it returns NULL. Otherwise, it returns a pointer to the newly
  *              created hash table.
