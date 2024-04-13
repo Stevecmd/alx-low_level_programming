@@ -396,3 +396,51 @@ javascript:(null)
 
 ```
 File: `4-hash_table_get.c`
+
+5. >>>print(ht)
+
+Write a function that prints a hash table.
+
+ - Prototype: `void hash_table_print(const hash_table_t *ht);`
+    - where ht is the hash table
+ - You should print the key/value in the order that they appear in the array of hash table
+    - Order: array, list
+ - Format: see example
+ - If ht is NULL, don’t print anything
+
+```sh
+
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ cat 5-main.c
+#include <stdlib.h>
+#include <string.h>
+#include <stdio.h>
+#include "hash_tables.h"
+
+/**
+ * main - check the code
+ *
+ * Return: Always EXIT_SUCCESS.
+ */
+int main(void)
+{
+        hash_table_t *ht;
+
+        ht = hash_table_create(1024);
+        hash_table_print(ht);
+        hash_table_set(ht, "c", "fun");
+        hash_table_set(ht, "python", "awesome");
+        hash_table_set(ht, "Bob", "and Kris love asm");
+        hash_table_set(ht, "N", "queens");
+        hash_table_set(ht, "Asterix", "Obelix");
+        hash_table_set(ht, "Betty", "Cool");
+        hash_table_set(ht, "98", "Battery Street");
+        hash_table_print(ht);
+        return (EXIT_SUCCESS);
+}
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ gcc -Wall -pedantic -Werror -Wextra -std=gnu89 5-main.c 0-hash_table_create.c 1-djb2.c 2-key_index.c 3-hash_table_set.c 4-hash_table_get.c 5-hash_table_print.c -o f
+stevecmd@DESKTOP-UTB295U:~/alx-low_level_programming/0x1A-hash_tables$ ./f
+{}
+{'Betty': 'Cool', 'python': 'awesome', '98': 'Battery Street', 'N': 'queens', 'c': 'fun', 'Bob': 'and Kris love asm', 'Asterix': 'Obelix'}
+
+```
+File: `5-hash_table_print.c`
