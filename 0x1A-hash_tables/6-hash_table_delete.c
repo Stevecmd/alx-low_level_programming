@@ -12,11 +12,11 @@ void hash_table_delete(hash_table_t *ht)
 	if (ht == NULL)
 		return;
 
-	/* Free each node and its key/value */
-	unsigned long int i;
 	hash_node_t *node, *tmp;
-	for (i = 0; i < ht->size; i++)
+	unsigned long int i;
 
+	/* Free each node and its key/value */
+	for (i = 0; i < ht->size; i++)
 	{
 		node = ht->array[i];
 		while (node != NULL)
