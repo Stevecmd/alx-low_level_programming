@@ -12,23 +12,23 @@ hash_table_t *hash_table_create(unsigned long int size)
 	hash_table_t *ht;
 	unsigned long int i;
 
-	/* Allocate memory for the hash table */
+	/* Allocating memory - hash table */
 	ht = malloc(sizeof(hash_table_t));
 	if (ht == NULL)
 		return (NULL);
 
-	/* Set the size of the hash table */
+	/* Setting the size of the hash table */
 	ht->size = size;
 
-	/* Allocate memory for the array of hash nodes */
+	/* Allocating memory for the array of hash-nodes */
 	ht->array = malloc(sizeof(hash_node_t *) * size);
 	if (ht->array == NULL)
 	{
-		free(ht); /* Free previously allocated memory */
+		/* free(ht); */ /* Free previously allocated memory */
 		return (NULL);
 	}
 
-	/* Initialize each element of the array to NULL */
+	/* Initializing each element of the array to NULL */
 	for (i = 0; i < size; i++)
 		ht->array[i] = NULL;
 
