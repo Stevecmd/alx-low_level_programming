@@ -1,0 +1,14 @@
+
+
+def find(nums, target):
+    for i in nums:
+        if i == target:
+            return True
+
+    return False
+
+nums = [1,2.3,4,4,6,2,3,9]
+print(find(nums, 3))
+print(find(nums, 8))
+
+    
