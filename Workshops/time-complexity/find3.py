@@ -10,7 +10,11 @@ def find(nums, target):
 def find2(nums, target):
     pass
 
-nums = [1,2,3,2,4,6,7]
+def get_index_val(nums, index):
+    val = nums[index]
+    return
+
+nums = [1,2,3,2,4,6,2,7]
 print(find(nums, 3))
 print(find(nums, 8))
 print(find(nums, 1))
