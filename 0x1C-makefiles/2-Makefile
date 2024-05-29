@@ -1,0 +1,19 @@
+# Makefile for building the 'school' executable
+
+# Variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+
+# Rules
+all: $(NAME)
+
+$(NAME): $(OBJ)
+	$(CC) -o $(NAME) $(OBJ)
+
+%.o: %.c
+	$(CC) -c $< -o $@
+
+clean:
+	rm -f $(OBJ) $(NAME)
