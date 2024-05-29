@@ -1,4 +1,5 @@
 # Variables
+# Compiler
 CC = gcc
 
 # Source files
@@ -19,16 +20,16 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# Rule to compile .c files to .o files
-$(OBJ): %.o : %.c m.h
-	@gcc -c $< $(CFLAGS) -o $@
+# Rules to compile .c files to .o files
+%.o: %.c m.h
+	$(CC) -c $< $(CFLAGS)
 
 # Cleaning rules
 clean:
-	@$(RM) $(NAME) *~ \#*\# *.swp *.swo
+	$(RM) $(NAME) *~ \#*\# *.swp *.swo
 
 oclean:
-	@$(RM) $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
 
