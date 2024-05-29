@@ -4,23 +4,20 @@ SRC = main.c school.c
 OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
-RM = rm -f
-
-.PHONY: all clean fclean oclean re
 
 # Default rule
 all: $(NAME)
 
 # Rule to build the executable
 $(NAME): $(OBJ)
-	$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
-# Compile source files to object files
-%.o: %.c m.h
-	$(CC) $(CFLAGS) -c $< -o $@
+# Rules to compile .c files to .o files
+main.o: main.c m.h
+	$(CC) -c main.c $(CFLAGS)
 
-# Ensure object files are recompiled if header changes
-$(OBJ): m.h
+school.o: school.c m.h
+	$(CC) -c school.c $(CFLAGS)
 
 # Cleaning rules
 clean:
@@ -33,3 +30,5 @@ fclean: clean oclean
 
 # Rule to force recompilation
 re: fclean all
+
+.PHONY: all clean oclean fclean re
