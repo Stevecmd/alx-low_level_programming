@@ -5,7 +5,7 @@ CC = gcc
 SRC = main.c school.c
 
 # Object files (derived from source files)
-OBJ = main.o school.o
+OBJ = $(SRC:.c=.o)
 
 # Executable name
 NAME = school
@@ -17,14 +17,14 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(LINK.o) $^ -o $@
+	$(CC) $(OBJ) -o $(NAME)
 
-# Compile .c files to .o files
+# Rule to compile .c files to .o files (avoiding direct %.o: %.c)
 main.o: main.c m.h
-	$(COMPILE.c) -o $@
+	$(CC) -c main.c $(CFLAGS) -o main.o
 
 school.o: school.c m.h
-	$(COMPILE.c) -o $@
+	$(CC) -c school.c $(CFLAGS) -o school.o
 
 # Cleaning rules
 clean:
