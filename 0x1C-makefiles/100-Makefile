@@ -37,3 +37,5 @@ fclean: clean oclean
 
 # Rule to force recompilation
 re: fclean all
+
+$(OBJ): m.h
