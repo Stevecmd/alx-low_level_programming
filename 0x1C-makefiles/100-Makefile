@@ -17,22 +17,21 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+	$(LINK.o) $^ -o $@
 
 # Compile .c files to .o files without using %.o: %.c
 main.o: main.c m.h
-	$(CC) -c main.c $(CFLAGS) -o main.o
+	$(COMPILE.c) -o $@
 
 school.o: school.c m.h
-	$(CC) -c school.c $(CFLAGS) -o school.o
+	$(COMPILE.c) -o $@
 
 # Cleaning rules
 clean:
-	$(RM) $(NAME)
-	$(RM) *~ \#*\# *.swp *.swo
+	rm -f $(NAME) *~ \#*\# *.swp *.swo
 
 oclean:
-	$(RM) $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean oclean
 
