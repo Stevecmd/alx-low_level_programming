@@ -1,4 +1,4 @@
-# Variables
+# Makefile for building the 'school' executable
 # Compiler
 CC = gcc
 
