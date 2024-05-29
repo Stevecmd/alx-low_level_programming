@@ -15,10 +15,10 @@ $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # Compile source files to object files
-main.o: main.c m.h
+main.o: main.c main.h
 	$(CC) -c main.c -Wall -Werror -Wextra -pedantic
 
-school.o: school.c m.h
+school.o: school.c main.h
 	$(CC) -c school.c -Wall -Werror -Wextra -pedantic
 
 # Cleaning rules
