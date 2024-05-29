@@ -20,6 +20,20 @@
 - A `README.md` file, at the root of the folder of the project, is mandatory
 
 ## Tasks
+
+Cofirm Make is installed:
+```sh
+
+alx-low_level_programming$ make -version
+GNU Make 4.3
+Built for x86_64-pc-linux-gnu
+Copyright (C) 1988-2020 Free Software Foundation, Inc.
+License GPLv3+: GNU GPL version 3 or later <http://gnu.org/licenses/gpl.html>
+This is free software: you are free to change and redistribute it.
+There is NO WARRANTY, to the extent permitted by law.
+
+```
+
 0. make -f 0-Makefile
 
 Create your first Makefile.
@@ -30,9 +44,6 @@ Requirements:
 - rules: `all`
         - The `all` rule builds your executable
 - variables: none
-
-
-
 
 
 
