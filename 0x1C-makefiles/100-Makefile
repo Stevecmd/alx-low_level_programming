@@ -1,4 +1,4 @@
-# Makefile for building the 'school' executable
+# Variables
 # Compiler
 CC = gcc
 
@@ -14,24 +14,19 @@ NAME = school
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# delete flag
-RM = rm -f
-
-.PHONY: all clean oclean fclean re
-
 # Rule to build the executable
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
+	$(CC) $(OBJ) -o $(NAME)
 
 # Rules to compile .c files to .o files
-$(OBJ): $(SRC)
-		$(CC) $(CFLAGS) -c $(SRC)
+%.o: %.c m.h
+	$(CC) -c $< $(CFLAGS)
 
 # Cleaning rules
 clean:
-	$(RM) $(OBJ) $(NAME)
+	$(RM) $(NAME) *~ \#*\# *.swp *.swo
 
 oclean:
 	$(RM) $(OBJ)
@@ -41,4 +36,4 @@ fclean: clean oclean
 # Rule to force recompilation
 re: fclean all
 
-$(OBJ): m.h
+.PHONY: all clean oclean fclean re
