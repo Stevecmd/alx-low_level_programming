@@ -14,9 +14,6 @@ NAME = school
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Default rule to build the executable
-all: $(NAME)
-
 # Rule to build the executable
 all: $(NAME)
 
