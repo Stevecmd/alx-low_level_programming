@@ -1,0 +1,34 @@
+# Variables
+CC = gcc
+SRC = main.c school.c
+OBJ = $(SRC:.c=.o)
+NAME = school
+CFLAGS = -Wall -Werror -Wextra -pedantic
+
+.PHONY: all clean fclean oclean re
+
+# Default rule
+all: $(NAME)
+
+# Rule to build the executable
+$(NAME): $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
+
+# Compile source files to object files
+main.o: main.c m.h
+	$(CC) -c main.c $(CFLAGS)
+
+school.o: school.c m.h
+	$(CC) -c school.c $(CFLAGS)
+
+# Cleaning rules
+clean:
+	rm -f $(NAME) *~ \#*\# *.swp *.swo
+
+oclean:
+	rm -f $(OBJ)
+
+fclean: clean oclean
+
+# Rule to force recompilation
+re: fclean all
