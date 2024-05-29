@@ -5,8 +5,6 @@ OBJ = $(SRC:.c=.o)
 NAME = school
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-.PHONY: all clean fclean oclean re
-
 # Default rule
 all: $(NAME)
 
@@ -14,7 +12,7 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# Compile source files to object files
+# Rules to compile .c files to .o files
 main.o: main.c m.h
 	$(CC) -c main.c $(CFLAGS)
 
@@ -23,12 +21,14 @@ school.o: school.c m.h
 
 # Cleaning rules
 clean:
-	rm -f $(NAME) *~ \#*\# *.swp *.swo
+	$(RM) $(NAME) *~ \#*\# *.swp *.swo
 
 oclean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
 
 # Rule to force recompilation
 re: fclean all
+
+.PHONY: all clean oclean fclean re
