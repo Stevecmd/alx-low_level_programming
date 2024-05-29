@@ -1,17 +1,17 @@
 # Variables
-## Compiler
+# Compiler
 CC = gcc
 
-## Source files
+# Source files
 SRC = main.c school.c
 
-## Object files (derived from source files)
+# Object files (derived from source files)
 OBJ = $(SRC:.c=.o)
 
-## Executable name
+# Executable name
 NAME = school
 
-## Compiler flags
+# Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
 # Default rule to build the executable
