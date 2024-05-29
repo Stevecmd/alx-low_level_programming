@@ -21,6 +21,9 @@ main.o: main.c m.h
 school.o: school.c m.h
 	$(CC) -c school.c -Wall -Werror -Wextra -pedantic
 
+# Ensure object files are recompiled if header changes
+$(OBJ): m.h
+
 # Cleaning rules
 clean:
 	rm -f $(NAME) *~ \#*\# *.swp *.swo
