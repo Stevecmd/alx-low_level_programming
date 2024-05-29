@@ -1,8 +1,8 @@
-# Variables
+# Compiler
 CC = gcc
 
 # Source files
-SRC = main.c school.c
+SRC = main.c file1.c file2.c
 
 # Object files
 OBJ = $(SRC:.c=.o)
@@ -10,33 +10,38 @@ OBJ = $(SRC:.c=.o)
 # Executable name
 NAME = school
 
+# Program to delete files
+RM = rm -f
+
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Rule to build the executable
+# Default rule: build the executable
 all: $(NAME)
 
+# Compile only updated source files
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# Compile .c files to .o files without using %.o: %.c
-main.o: main.c m.h
-	$(CC) -c main.c $(CFLAGS) -o main.o
-
-school.o: school.c m.h
-	$(CC) -c school.c $(CFLAGS) -o school.o
-
-# Cleaning rules
+# Clean Emacs, Vim, and executable files
 clean:
-	rm -f $(NAME)
-	rm -f *~ \#*\# *.swp *.swo
+	$(RM) *~ $(NAME)
 
+# Clean object files
 oclean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
+# Clean everything
 fclean: clean oclean
 
-# Rule to force recompilation
+# Force recompilation of all source files
 re: fclean all
+
+# Rule to compile .c files into .o files
+%.o: %.c
+	$(CC) $(CFLAGS) -c $< -o $@
+
+# Ensure m.h header file exists
+$(OBJ): m.h
 
 .PHONY: all clean oclean fclean re
