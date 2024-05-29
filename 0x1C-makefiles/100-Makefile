@@ -20,7 +20,7 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	$(CC) $(OBJ) -o $(NAME)
+		$(CC) $(OBJ) -o $(NAME)
 
 # Rules to compile .c files to .o files
 %.o: %.c m.h
