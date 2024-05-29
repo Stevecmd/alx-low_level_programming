@@ -14,6 +14,9 @@ NAME = school
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
+# delete flag
+RM = rm -f
+
 .PHONY: all clean oclean fclean re
 
 # Rule to build the executable
@@ -24,7 +27,7 @@ $(NAME): $(OBJ)
 
 # Rules to compile .c files to .o files
 $(OBJ): $(SRC)
-	$(CC) $(CFLAGS) -c $(SRC)
+		$(CC) $(CFLAGS) -c $(SRC)
 
 # Cleaning rules
 clean:
