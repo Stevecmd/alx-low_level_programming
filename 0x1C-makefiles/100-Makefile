@@ -14,6 +14,8 @@ NAME = school
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
+.PHONY: all clean oclean fclean re
+
 # Rule to build the executable
 all: $(NAME)
 
@@ -35,5 +37,3 @@ fclean: clean oclean
 
 # Rule to force recompilation
 re: fclean all
-
-.PHONY: all clean oclean fclean re
