@@ -20,15 +20,15 @@ CFLAGS = -Wall -Werror -Wextra -pedantic
 all: $(NAME)
 
 $(NAME): $(OBJ)
-		$(CC) $(OBJ) -o $(NAME)
+		$(CC) $(CFLAGS) $(OBJ) -o $(NAME)
 
 # Rules to compile .c files to .o files
-%.o: %.c m.h
-	$(CC) -c $< $(CFLAGS)
+$(OBJ): $(SRC)
+	$(CC) $(CFLAGS) -c $(SRC)
 
 # Cleaning rules
 clean:
-	$(RM) $(NAME) *~ \#*\# *.swp *.swo
+	$(RM) $(OBJ) $(NAME)
 
 oclean:
 	$(RM) $(OBJ)
