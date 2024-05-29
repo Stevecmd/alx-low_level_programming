@@ -4,7 +4,7 @@ CC = gcc
 # Source files
 SRC = main.c school.c
 
-# Object files (derived from source files)
+# Object files
 OBJ = $(SRC:.c=.o)
 
 # Executable name
@@ -19,19 +19,19 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# Rule to compile .c files to .o files (avoiding direct %.o: %.c)
+# Compile .c files to .o files
 main.o: main.c m.h
-	$(CC) -c main.c $(CFLAGS) -o main.o
+	$(CC) -c main.c -o main.o $(CFLAGS)
 
 school.o: school.c m.h
-	$(CC) -c school.c $(CFLAGS) -o school.o
+	$(CC) -c school.c -o school.o $(CFLAGS)
 
 # Cleaning rules
 clean:
-	$(RM) $(NAME) *~ \#*\# *.swp *.swo
+	rm -f $(NAME) *~ \#*\# *.swp *.swo
 
 oclean:
-	$(RM) $(OBJ)
+	rm -f $(OBJ)
 
 fclean: clean oclean
 
