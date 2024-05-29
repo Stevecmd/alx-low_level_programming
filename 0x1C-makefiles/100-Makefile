@@ -1,23 +1,31 @@
 # Variables
+## Compiler
 CC = gcc
+
+## Source files
 SRC = main.c school.c
+
+## Object files (derived from source files)
 OBJ = $(SRC:.c=.o)
+
+## Executable name
 NAME = school
+
+## Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Default rule
+# Default rule to build the executable
 all: $(NAME)
 
 # Rule to build the executable
+all: $(NAME)
+
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
 # Rules to compile .c files to .o files
-main.o: main.c m.h
-	$(CC) -c main.c $(CFLAGS)
-
-school.o: school.c m.h
-	$(CC) -c school.c $(CFLAGS)
+%.o: %.c m.h
+	$(CC) -c $< $(CFLAGS)
 
 # Cleaning rules
 clean:
