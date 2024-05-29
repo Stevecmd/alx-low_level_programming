@@ -5,7 +5,7 @@ CC = gcc
 SRC = main.c school.c
 
 # Object files
-OBJ = main.o school.o
+OBJ = $(SRC:.c=.o)
 
 # Executable name
 NAME = school
@@ -28,10 +28,11 @@ school.o: school.c m.h
 
 # Cleaning rules
 clean:
-	rm -f $(NAME) *~ \#*\# *.swp *.swo
+	$(RM) $(NAME)
+	$(RM) *~ \#*\# *.swp *.swo
 
 oclean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
 
