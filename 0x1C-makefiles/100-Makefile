@@ -1,5 +1,4 @@
 # Variables
-# Compiler
 CC = gcc
 
 # Source files
@@ -20,9 +19,14 @@ all: $(NAME)
 $(NAME): $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
-# Rules to compile .c files to .o files
-%.o: %.c m.h
-	$(CC) -c $< $(CFLAGS)
+# Rule to compile .c files to .o files
+compile_obj = $(CC) -c $< $(CFLAGS) -o $@
+
+main.o: main.c m.h
+	$(compile_obj)
+
+school.o: school.c m.h
+	$(compile_obj)
 
 # Cleaning rules
 clean:
