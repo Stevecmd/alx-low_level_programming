@@ -13,29 +13,26 @@ NAME = school
 # Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
-# Rule to build the executable
+.PHONY: all clean oclean fclean re
+
 all: $(NAME)
 
-$(NAME): $(OBJ)
-	$(LINK.o) $^ -o $@
+$(NAME): m.h $(OBJ)
+	$(CC) $(OBJ) -o $(NAME)
 
-# Compile .c files to .o files without using %.o: %.c
-main.o: main.c m.h
-	$(COMPILE.c) -o $@
-
-school.o: school.c m.h
-	$(COMPILE.c) -o $@
-
-# Cleaning rules
 clean:
-	rm -f $(NAME) *~ \#*\# *.swp *.swo
+	$(RM) *~ $(NAME)
 
 oclean:
-	rm -f $(OBJ)
+	$(RM) $(OBJ)
 
 fclean: clean oclean
 
-# Rule to force recompilation
 re: fclean all
 
-.PHONY: all clean oclean fclean re
+%.o: %.c
+	$(CC) -c $< $(CFLAGS) -o $@
+
+m.h:
+	@echo "Header file m.h is missing!"
+	@false
