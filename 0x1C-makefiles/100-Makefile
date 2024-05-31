@@ -1,20 +1,36 @@
+# Compiler to be used
 CC = gcc
+
+# Source files
 SRC = main.c school.c
+
+# Object files (transformed from source files)
 OBJ = $(SRC:.c=.o)
+
+# Name of the executable
 NAME = school
+
+# Compiler flags
 CFLAGS = -Wall -Werror -Wextra -pedantic
 
+# Declare the phony targets to avoid conflicts with files of the same name
 .PHONY: all clean oclean fclean re
 
+# Default target: build the executable
+# This target depends on the header file m.h and the object files
 all: m.h $(OBJ)
 	$(CC) $(OBJ) -o $(NAME)
 
+# Clean up temporary files and the executable
 clean:
 	$(RM) *~ $(NAME)
 
+# Clean up object files
 oclean:
 	$(RM) $(OBJ)
 
+# Fully clean: run both clean and oclean
 fclean: clean oclean
 
+# Rebuild everything: clean fully and then build all
 re: fclean all
