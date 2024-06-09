@@ -7,24 +7,26 @@
  */
 int isELF(Elf64_Ehdr ehdr)
 {
-	if (ehdr.e_ident[EI_MAG0] != ELFMAG0 ||
-		ehdr.e_ident[EI_MAG1] != ELFMAG1 ||
-		ehdr.e_ident[EI_MAG2] != ELFMAG2 ||
-		ehdr.e_ident[EI_MAG3] != ELFMAG3)
+	if (ehdr.e_ident[EI_MAG0] != ELFMAG0)
+		return (0);
+	if (ehdr.e_ident[EI_MAG1] != ELFMAG1)
+		return (0);
+	if (ehdr.e_ident[EI_MAG2] != ELFMAG2)
+		return (0);
+	if (ehdr.e_ident[EI_MAG3] != ELFMAG3)
 		return (0);
 
 	return (1);
 }
 
 /**
- * printELFHeaderInfo - prints the ELF header information
- * @ehdr: elf header to be checked
+ * printMagicClassData - prints the ELF magic bytes, class, and data encoding
+ * @ehdr: ELF header
  */
-void printELFHeaderInfo(Elf64_Ehdr ehdr)
+void printMagicClassData(Elf64_Ehdr ehdr)
 {
 	int i;
 
-	write(STDOUT_FILENO, "ELF Header:\n", 12);
 	write(STDOUT_FILENO, "  Magic:  ", 10);
 	for (i = 0; i < EI_NIDENT; i++)
 	{
@@ -63,8 +65,16 @@ void printELFHeaderInfo(Elf64_Ehdr ehdr)
 		default:
 			dprintf(STDOUT_FILENO, "<unknown: %d>\n", ehdr.e_ident[EI_DATA]);
 	}
+}
 
-	dprintf(STDOUT_FILENO, "  Version:                           %d (current)\n", ehdr.e_ident[EI_VERSION]);
+/**
+ * printVersionOSABIType - prints the ELF version, OS/ABI, and type
+ * @ehdr: ELF header
+ */
+void printVersionOSABIType(Elf64_Ehdr ehdr)
+{
+	dprintf(STDOUT_FILENO, "  Version:                           %d (current)\n",
+			ehdr.e_ident[EI_VERSION]);
 
 	write(STDOUT_FILENO, "  OS/ABI:                            ", 37);
 	switch (ehdr.e_ident[EI_OSABI])
@@ -106,7 +116,8 @@ void printELFHeaderInfo(Elf64_Ehdr ehdr)
 			dprintf(STDOUT_FILENO, "<unknown: %d>\n", ehdr.e_ident[EI_OSABI]);
 	}
 
-	dprintf(STDOUT_FILENO, "  ABI Version:                       %d\n", ehdr.e_ident[EI_ABIVERSION]);
+	dprintf(STDOUT_FILENO, "  ABI Version:                       %d\n",
+			ehdr.e_ident[EI_ABIVERSION]);
 
 	write(STDOUT_FILENO, "  Type:                              ", 37);
 	switch (ehdr.e_type)
@@ -129,8 +140,28 @@ void printELFHeaderInfo(Elf64_Ehdr ehdr)
 		default:
 			dprintf(STDOUT_FILENO, "<unknown: %d>\n", ehdr.e_type);
 	}
+}
 
-	dprintf(STDOUT_FILENO, "  Entry point address:               %#lx\n", (unsigned long)ehdr.e_entry);
+/**
+ * printEntryPoint - prints the ELF entry point address
+ * @ehdr: ELF header
+ */
+void printEntryPoint(Elf64_Ehdr ehdr)
+{
+	dprintf(STDOUT_FILENO, "  Entry point address:               %#lx\n",
+			(unsigned long)ehdr.e_entry);
+}
+
+/**
+ * printELFHeaderInfo - prints the ELF header information
+ * @ehdr: elf header to be checked
+ */
+void printELFHeaderInfo(Elf64_Ehdr ehdr)
+{
+	write(STDOUT_FILENO, "ELF Header:\n", 12);
+	printMagicClassData(ehdr);
+	printVersionOSABIType(ehdr);
+	printEntryPoint(ehdr);
 }
 
 /**
@@ -151,7 +182,6 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	/* Open the ELF file */
 	fd = open(argv[1], O_RDONLY);
 	if (fd == -1)
 	{
@@ -159,7 +189,6 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	/* Read the ELF header */
 	nread = read(fd, &ehdr, sizeof(ehdr));
 	if (nread != sizeof(ehdr))
 	{
@@ -168,7 +197,6 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	/* Check if the file is an ELF file */
 	if (!isELF(ehdr))
 	{
 		write(STDERR_FILENO, "Error: Not an ELF file\n", 23);
@@ -176,10 +204,8 @@ int main(int argc, char *argv[])
 		exit(98);
 	}
 
-	/* Print the ELF header information */
 	printELFHeaderInfo(ehdr);
 
-	/* Close the file */
 	close(fd);
 
 	return (0);
