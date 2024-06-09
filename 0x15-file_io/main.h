@@ -13,10 +13,5 @@ int create_file(const char *filename, char *text_content);
 int append_text_to_file(const char *filename, char *text_content);
 
 /* 100-elf_header.c */
-int isELF(Elf64_Ehdr ehdr);
-void printELFHeaderInfo(Elf64_Ehdr ehdr);
-void printMagicClassData(Elf64_Ehdr ehdr);
-void printVersionOSABIType(Elf64_Ehdr ehdr);
-void printEntryPoint(Elf64_Ehdr ehdr);
 
 #endif /* MAIN_H */
