@@ -49,7 +49,7 @@ Write a function that searches for a value in an array of integers using the `Li
 
 ```sh
 
-wilfried@0x1E-search_algorithms$ cat 0-main.c 
+stevecmd@0x1E-search_algorithms$ cat 0-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -71,8 +71,8 @@ int main(void)
     printf("Found %d at index: %d\n", 999, linear_search(array, size, 999));
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 0-main.c 0-linear.c -o 0-linear
-wilfried@0x1E-search_algorithms$ ./0-linear 
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 0-main.c 0-linear.c -o 0-linear
+stevecmd@0x1E-search_algorithms$ ./0-linear 
 Value checked array[0] = [10]
 Value checked array[1] = [1]
 Value checked array[2] = [42]
@@ -113,7 +113,7 @@ Write a function that searches for a value in a sorted array of integers using t
 - You must print the array being searched every time it changes. (e.g. at the beginning and when you search a subarray) (See example)
 ```sh
 
-wilfried@0x1E-search_algorithms$ cat 1-main.c 
+stevecmd@0x1E-search_algorithms$ cat 1-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -135,8 +135,8 @@ int main(void)
     printf("Found %d at index: %d\n", 999, binary_search(array, size, 999));
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 1-main.c 1-binary.c -o 1-binary
-wilfried@0x1E-search_algorithms$ ./1-binary 
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 1-main.c 1-binary.c -o 1-binary
+stevecmd@0x1E-search_algorithms$ ./1-binary 
 Searching in array: 0, 1, 2, 3, 4, 5, 6, 7, 8, 9
 Searching in array: 0, 1, 2, 3
 Searching in array: 2, 3
@@ -204,7 +204,7 @@ Write a function that searches for a value in a sorted array of integers using t
 - Every time you compare a value in the array to the value you are searching for, you have to print this value (see example)
 ```sh
 
-wilfried@0x1E-search_algorithms$ cat 100-main.c 
+stevecmd@0x1E-search_algorithms$ cat 100-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -226,8 +226,8 @@ int main(void)
     printf("Found %d at index: %d\n", 999, jump_search(array, size, 999));
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 100-main.c 100-jump.c -lm -o 100-jump
-wilfried@0x1E-search_algorithms$ ./100-jump 
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 100-main.c 100-jump.c -lm -o 100-jump
+stevecmd@0x1E-search_algorithms$ ./100-jump 
 Value checked array[0] = [0]
 Value checked array[3] = [3]
 Value found between indexes [3] and [6]
@@ -271,7 +271,7 @@ Write a function that searches for a value in a sorted array of integers using t
 - Every time you compare a value in the array to the value you are searching, you have to print this value (see example below)
 ```sh
 
-wilfried@0x1E-search_algorithms$ cat 102-main.c 
+stevecmd@0x1E-search_algorithms$ cat 102-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -293,8 +293,8 @@ int main(void)
     printf("Found %d at index: %d\n", 999, interpolation_search(array, size, 999));
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 102-main.c 102-interpolation.c -o 102-interpolation
-wilfried@0x1E-search_algorithms$ ./102-interpolation 
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 102-main.c 102-interpolation.c -o 102-interpolation
+stevecmd@0x1E-search_algorithms$ ./102-interpolation 
 Value checked array[6] = [2]
 Value checked array[7] = [3]
 Found 3 at index: 7
@@ -323,7 +323,7 @@ Write a function that searches for a value in a sorted array of integers using t
     Once you’ve found the good range, you need to use a binary search:
         Every time you split the array, you have to print the new array (or subarray) you’re searching in (See example)
 ```sh
-wilfried@0x1E-search_algorithms$ cat 103-main.c 
+stevecmd@0x1E-search_algorithms$ cat 103-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -345,8 +345,8 @@ int main(void)
     printf("Found %d at index: %d\n", 999, exponential_search(array, size, 999));
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 103-main.c 103-exponential.c -o 103-exponential
-wilfried@0x1E-search_algorithms$ ./103-exponential 
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 103-main.c 103-exponential.c -o 103-exponential
+stevecmd@0x1E-search_algorithms$ ./103-exponential 
 Value checked array[1] = [1]
 Value checked array[2] = [2]
 Value checked array[4] = [4]
@@ -390,7 +390,7 @@ Write a function that searches for a value in a sorted array of integers.
 - Every time you split the array, you have to print the new array (or subarray) you’re searching in (See example)
 - You have to use recursion. You may only use one loop (`while`, `for`, `do while`, etc.) in order to print the array
 ```sh
-wilfried@0x1E-search_algorithms$ cat 104-main.c 
+stevecmd@0x1E-search_algorithms$ cat 104-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -412,8 +412,8 @@ int main(void)
     printf("Found %d at index: %d\n", 999, advanced_binary(array, size, 999));
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 104-main.c 104-advanced_binary.c -o 104-advanced_binary
-wilfried@0x1E-search_algorithms$ ./104-advanced_binary
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 104-main.c 104-advanced_binary.c -o 104-advanced_binary
+stevecmd@0x1E-search_algorithms$ ./104-advanced_binary
 Searching in array: 0, 1, 2, 5, 5, 6, 6, 7, 8, 9
 Searching in array: 6, 6, 7, 8, 9
 Searching in array: 8, 9
@@ -466,7 +466,7 @@ Write a function that searches for a value in a sorted list of integers using th
 - You can use the `sqrt()` function included in `<math.h>` (don’t forget to compile with -lm)
 - Every time you compare a value in the list to the value you are searching, you have to print this value (see example)
 ```sh
-wilfried@0x1E-search_algorithms$ cat 105-main.c 
+stevecmd@0x1E-search_algorithms$ cat 105-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -501,8 +501,8 @@ int main(void)
     free_list(list);
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 105-main.c 105-jump_list.c listint/*.c -lm -o 105-jump
-wilfried@0x1E-search_algorithms$ ./105-jump 
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 105-main.c 105-jump_list.c listint/*.c -lm -o 105-jump
+stevecmd@0x1E-search_algorithms$ ./105-jump 
 List :
 Index[0] = [0]
 Index[1] = [1]
@@ -585,7 +585,7 @@ Write a function that searches for a value in a sorted skip list of integers.
 - If `value` is not present in `list` or if head is `NULL`, your function must return NULL
 - Every time you compare a value in the list to the value you are searching, you have to print this value (see example below)
 ```sh
-wilfried@0x1E-search_algorithms$ cat 106-main.c 
+stevecmd@0x1E-search_algorithms$ cat 106-main.c 
 #include <stdio.h>
 #include <stdlib.h>
 #include "search_algos.h"
@@ -620,8 +620,8 @@ int main(void)
     free_skiplist(list);
     return (EXIT_SUCCESS);
 }
-wilfried@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 106-main.c 106-linear_skip.c skiplist/*.c -lm -o 106-linear
-wilfried@0x1E-search_algorithms$ ./106-linear 
+stevecmd@0x1E-search_algorithms$ gcc -Wall -Wextra -Werror -pedantic -std=gnu89 106-main.c 106-linear_skip.c skiplist/*.c -lm -o 106-linear
+stevecmd@0x1E-search_algorithms$ ./106-linear 
 List :
 Index[0] = [0]
 Index[1] = [1]
