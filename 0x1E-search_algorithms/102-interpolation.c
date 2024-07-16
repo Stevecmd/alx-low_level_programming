@@ -1,6 +1,32 @@
 #include "search_algos.h"
 
 /**
+ * print_out_of_range - Prints a message when a value is out of range
+ * @pos: The position that is out of range
+ */
+void print_out_of_range(size_t pos)
+{
+	printf("Value checked array[%lu] is out of range\n", pos);
+}
+
+/**
+ * calculate_position - Calculates the position using interpolation formula
+ * @low: The lower bound index
+ * @high: The upper bound index
+ * @array: The array to search in
+ * @value: The value to search for
+ *
+ * Return: The calculated position
+ */
+size_t calculate_position(size_t low, size_t high, int *array, int value)
+{
+	return (low + (
+		((double)(high - low) / (array[high] - array[low])) *
+		(value - array[low])
+	));
+}
+
+/**
  * interpolation_search - Searches for a value in a sorted array of integers
  * using the Interpolation search algorithm
  * @array: Pointer to the first element of the array to search in
@@ -28,14 +54,11 @@ int interpolation_search(int *array, size_t size, int value)
 			return (-1);
 		}
 
-		pos = low + (
-			((double)(high - low) / (array[high] - array[low])) *
-			(value - array[low])
-		);
+		pos = calculate_position(low, high, array, value);
 
 		if (pos >= size)
 		{
-			printf("Value checked array[%lu] is out of range\n", pos);
+			print_out_of_range(pos);
 			return (-1);
 		}
 
@@ -49,6 +72,10 @@ int interpolation_search(int *array, size_t size, int value)
 		else
 			high = pos - 1;
 	}
+
+	pos = calculate_position(low, high, array, value);
+	if (pos >= size)
+		print_out_of_range(pos);
 
 	return (-1);
 }
