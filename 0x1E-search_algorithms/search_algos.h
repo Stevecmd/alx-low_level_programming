@@ -54,9 +54,6 @@ void print_array(int *array, size_t left, size_t right);
 listint_t *jump_list(listint_t *list, size_t size, int value);
 
 /* 106 */
-void print_checked_value(skiplist_t *node);
-void print_found_range(skiplist_t *start, skiplist_t *end);
 skiplist_t *linear_skip(skiplist_t *list, int value);
-skiplist_t *traverse_express_lane(skiplist_t *list, int value);
 
 #endif /* SEARCH_ALGOS_H */
