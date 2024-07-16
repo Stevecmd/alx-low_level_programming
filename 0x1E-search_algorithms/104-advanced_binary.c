@@ -35,7 +35,7 @@ int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
 {
 	size_t mid;
 
-	if (left > right)
+	if (array == NULL || left > right)
 		return (-1);
 
 	print_array(array, left, right);
@@ -68,8 +68,15 @@ int advanced_binary_recursive(int *array, size_t left, size_t right, int value)
  */
 int advanced_binary(int *array, size_t size, int value)
 {
+	int index;
+
 	if (array == NULL)
 		return (-1);
 
-	return (advanced_binary_recursive(array, 0, size - 1, value));
+	index = advanced_binary_recursive(array, 0, size - 1, value);
+
+	if (index >= 0 && array[index] != value)
+		return (-1);
+
+	return (index);
 }
