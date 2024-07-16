@@ -50,6 +50,9 @@ int advanced_binary(int *array, size_t size, int value);
 listint_t *jump_list(listint_t *list, size_t size, int value);
 void print_array(int *array, size_t left, size_t right);
 
+/* 105 */
+listint_t *jump_list(listint_t *list, size_t size, int value);
+
 /* 106 */
 void print_checked_value(skiplist_t *node);
 void print_found_range(skiplist_t *start, skiplist_t *end);
